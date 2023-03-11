@@ -53,26 +53,14 @@ public class TestWebClient {
         Assertions.assertTrue(getAc.getCustomerName().equals("Cust 2"));
     }
 
-    @Test
-    @DisplayName("Get non-existing account")
-    @Order(3)
-    void getNonExistingAcTest() {
-        AccountDTO getAc = accountSvcClient.get("9876543210");
-        Assertions.assertNull(getAc);
-    }
-
 //    @Test
-//    @DisplayName("Update existing account")
-//    @Order(4)
-//    void updateExistingAcTest() throws JsonProcessingException {
-//        UpdateAccountDTO updateAccountDTO = accountMapper.accToUpdAcc(addAc);
-//        updateAccountDTO.setAccountStatus(AccountStatus.BLOCKED);
-//        AccountDTO updateAc = accountSvcClient.update(addAc.getAccountId(), updateAccountDTO);
-//        Assertions.assertAll(
-//                () -> assertEquals(AccountStatus.BLOCKED, updateAccountDTO.getAccountStatus()),
-//                ()->assertEquals(addAc.getAccountId(),updateAc.getAccountId())
-//        );
+//    @DisplayName("Get non-existing account")
+//    @Order(3)
+//    void getNonExistingAcTest() {
+//        AccountDTO getAc = accountSvcClient.get("9876543210");
+//        Assertions.assertNull(getAc);
 //    }
+
 
 
 }

@@ -57,7 +57,7 @@ public class AccountSvcWebClient implements AccountSvcClient{
     }
     @Override
     public AccountDTO get(String accountId) {
-        AccountDTO accountDTO = webClient.get()
+        Mono<AccountDTO> mono = webClient.get()
                 .uri(accountId)
                 .exchangeToMono(
                         response -> {
@@ -69,8 +69,8 @@ public class AccountSvcWebClient implements AccountSvcClient{
                                 return response.createException().flatMap(Mono::error);
                             }
                         }
-                )
-                .block();
+                );
+        AccountDTO accountDTO = mono.block();
         log.info("AccountSvcWebClient GET ac:"+accountDTO);
         return accountDTO;
     }
