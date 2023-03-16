@@ -21,24 +21,35 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-webflux'
-	implementation 'org.jetbrains:annotations:23.0.0'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
-	testCompileOnly 'org.projectlombok:lombok'
-	testAnnotationProcessor 'org.projectlombok:lombok'
+
+	implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.13.3'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
-
+	testCompileOnly 'org.projectlombok:lombok'
+	testAnnotationProcessor 'org.projectlombok:lombok'
+	// mapstruct for bean mapping - entity, vo, dto
 	testImplementation 'org.mapstruct:mapstruct:1.5.0.Final'
 	testAnnotationProcessor 'org.mapstruct:mapstruct-processor:1.5.0.Final'
 	testAnnotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 
 
-	// https://mvnrepository.com/artifact/javax.validation/validation-api
+	// https://mvnrepository.com/artifact/com.github.tomakehurst/wiremock
+	testImplementation group: 'com.github.tomakehurst', name: 'wiremock', version: '3.0.0-beta-2'
+
+
 	implementation 'javax.validation:validation-api:2.0.1.Final'
 	implementation 'javax.annotation:javax.annotation-api:1.3.2'
+//	implementation group: 'io.clogr', name: 'slf4j1-shim', version: '0.8.4'
+//	implementation group: 'io.clogr', name: 'clogr-slf4j1-adapter', version: '0.8.2'
+
+
+
+
+
+
 }
 
 tasks.named('test') {
